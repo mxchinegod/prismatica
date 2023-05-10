@@ -1,0 +1,8 @@
+fastapi==0.95.1
+langchain==0.0.164
+pydantic==1.10.2
+pymongo==4.3.3
+qdrant_client==1.1.7
+transformers==4.23.1
+uvicorn==0.22.0
+python-multipart==0.0.6
