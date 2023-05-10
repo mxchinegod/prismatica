@@ -17,8 +17,14 @@ from langchain.document_loaders import PyPDFLoader, Docx2txtLoader
 
 app = FastAPI()
 app.mount("/public", StaticFiles(directory="public"), name="public")
-mongo_host = 'mongodb://localhost:27017/'
-qdrant_host = '127.0.0.1'
+
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+mongo_host = config.get('mongo', 'host')
+qdrant_host = config.get('qdrant', 'host')
 
 class Document(BaseModel):
     filename: str
