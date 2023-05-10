@@ -17,8 +17,8 @@ from langchain.document_loaders import PyPDFLoader, Docx2txtLoader
 
 app = FastAPI()
 app.mount("/public", StaticFiles(directory="public"), name="public")
-tokenizer = AutoTokenizer.from_pretrained("gpt2")
-generator = pipeline('text-generation', model='gpt2', tokenizer=tokenizer)
+mongo_host = 'mongodb://localhost:27017/'
+qdrant_host = '127.0.0.1'
 
 class Document(BaseModel):
     filename: str
@@ -52,7 +52,7 @@ class MongoCollection:
         return self._db[key]
 
 
-mongo_client = MongoDB('mongodb://localhost:27017/', registry='utf-8')
+mongo_client = MongoDB(mongo_host, registry='utf-8')
 ml_tasks = mongo_client['tasks']['ml_tasks']
 uploads_collection = mongo_client['user_uploads']['uploads']
 
@@ -151,7 +151,6 @@ async def task_status(task_id: str):
 async def find_similar_documents_task(document: Document, task: str):
     print(document)
     embedding_model = "sentence-transformers/multi-qa-MiniLM-L6-cos-v1"
-    qdrant_host = "127.0.0.1"
     _question = document.question
     _limit = 10
     client = QdrantClient(url=qdrant_host+":6333")
@@ -180,7 +179,6 @@ async def find_similar_documents_task(document: Document, task: str):
             doc = page.page_content.replace("\n", " ").replace("\t", " ")
             docs.append(doc)
             # _id=[str(each.metadata["page"])]
-    print(len(docs))
     Qdrant.from_texts(
         texts=docs, embedding=embeddings, host=qdrant_host, collection_name="custom_llm"
     )
