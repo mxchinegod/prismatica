@@ -1,0 +1,26 @@
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@-webkit-keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.typer-target {
+    animation: blink-caret 0.5s step-end infinite alternate;
+    border-right: 1px solid #fafafa;
+    color: #ffffff;
+    line-height: normal;
+    margin: 0;
+    font-family: 'B612 Mono', monospace;
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+.typer-target>span {
+    font-weight: 300;
+}

@@ -1,0 +1,86 @@
+
+.foo {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    border-style: solid;
+    width:100%;
+    border-width: 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: default;
+    display: inline-block;
+    height: 3rem;
+    padding: 1rem;
+    position: relative;
+    text-transform: uppercase;
+    transition: border-color 0.6s;
+  }
+  .foo__list {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: solid 1px #fff;
+    list-style: none;
+    margin: -1px 0 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    opacity: 0;
+    text-transform: none;
+    width: 100%;
+    transition: opacity 0.6s;
+  }
+  .foo__item {
+    display: inline-block;
+    height: 20px;
+    position: relative;
+    right: -5rem;
+    text-align: right;
+    width: 100%;
+    transition: right 0.2s ease-in-out;
+  }
+  .foo__item:nth-child(0n) {
+    transition-delay: 0s;
+  }
+  .foo__item:nth-child(1n) {
+    transition-delay: 0.1s;
+  }
+  .foo__item:nth-child(2n) {
+    transition-delay: 0.2s;
+  }
+  .foo__item:nth-child(3n) {
+    transition-delay: 0.3s;
+  }
+  .foo__item:nth-child(4n) {
+    transition-delay: 0.4s;
+  }
+  .foo__item:nth-child(5n) {
+    transition-delay: 0.5s;
+  }
+  .foo__item:nth-child(6n) {
+    transition-delay: 0.6s;
+  }
+  .foo__item:nth-child(7n) {
+    transition-delay: 0.7s;
+  }
+  .foo__item:nth-child(8n) {
+    transition-delay: 0.8s;
+  }
+  .foo__item:nth-child(9n) {
+    transition-delay: 0.9s;
+  }
+  .foo__item:nth-child(10n) {
+    transition-delay: 1s;
+  }
+  .foo__item:hover {
+    background: rgba(52, 73, 94, 0.4);
+  }
+  .foo:hover {
+    border-bottom-color: transparent;
+  }
+  .foo:hover .foo__list {
+    opacity: 1;
+  }
+  .foo:hover .foo__item {
+    right: .2rem;
+  }

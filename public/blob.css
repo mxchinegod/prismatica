@@ -1,0 +1,157 @@
+#blob {
+  position: absolute;
+}
+
+#blob canvas {
+  min-width: 100%;
+  margin-top: -7%;
+}
+
+@media (max-width: 1200px) {
+  #blob canvas {
+    margin-top: -10%;
+    width: 1000px;
+  }
+}
+
+@media (max-width: 600px) {
+  #blob canvas {
+    width: 1000px;
+  }
+}
+
+.controls {
+  background: #3F4656;
+  display: flex;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 4px 20px -1px rgba(18, 22, 33, 0.7);
+}
+
+@media (max-width: 1200px) {
+  .controls {
+    margin-top: -4%;
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+  }
+}
+
+.controls label {
+  color: #CDD9ED;
+  font-weight: 500;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 600px) {
+  .controls label {
+    margin-bottom: 12px;
+  }
+}
+
+.controls [type=range] {
+  width: 160px;
+}
+
+@media (max-width: 600px) {
+  .controls [type=range] {
+    width: 280px;
+  }
+}
+
+.controls>div:not(:last-child) {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .controls>div:not(:last-child) {
+    margin: 0 0 24px 0;
+  }
+}
+
+.rangeSlider {
+  position: relative;
+  background: none;
+  border: 1px solid #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.rangeSlider.rangeSlider__horizontal {
+  height: 10px;
+  width: 160px;
+}
+
+.rangeSlider .rangeSlider__fill {
+  border-radius: 7px;
+  background: #fff;
+  position: absolute;
+}
+
+.rangeSlider .rangeSlider__fill:before {
+  content: "";
+  left: -2px;
+  top: -2px;
+  bottom: -2px;
+  right: -2px;
+  border: 2px solid #3F4656;
+  border-radius: 6px;
+  position: absolute;
+}
+
+.rangeSlider .rangeSlider__fill__horizontal {
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.rangeSlider .rangeSlider__handle {
+  border: 2px solid #3F4656;
+  cursor: grab;
+  cursor: -webkit-grab;
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.rangeSlider .rangeSlider__handle__horizontal {
+  top: -7px;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #1c1f29;
+}
